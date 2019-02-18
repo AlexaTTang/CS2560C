@@ -4,22 +4,20 @@
  *  Created on: Feb 17, 2019
  *      Author: alexa
  */
-//You define type of I/O
-//scanf and printf
-
-//reading two items a string and int
+//STRING
+//READ/WRITE using get and put
 #include <stdio.h>
-int main( )
-{
+int main( ) {
 
-   char str[100];
-   int i;
+   char str[100];       //char array STRING used as buffer
 
    printf( "Enter a value :");
    fflush(stdout);  //ECLIPSE BUG
-   scanf("%s %d", str, &i);
+   gets( str );
 
-   printf( "\nYou entered: %s %d ", str, i);
+   printf( "\nYou entered: ");
+   puts( str );
 
    return 0;
 }
+
