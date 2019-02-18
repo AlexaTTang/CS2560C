@@ -4,20 +4,17 @@
  *  Created on: Feb 17, 2019
  *      Author: alexa
  */
-//STRING
-//READ/WRITE using get and put
+//CREATE AND WRITE TO FILE
 #include <stdio.h>
-int main( ) {
 
-   char str[100];       //char array STRING used as buffer
+int main()
+{
+   FILE *fp;        //pointer to a file type
 
-   printf( "Enter a value :");
-   fflush(stdout);  //ECLIPSE BUG
-   gets( str );
-
-   printf( "\nYou entered: ");
-   puts( str );
-
+   fp = fopen("textFile.txt", "w+");
+   fprintf(fp, "This is testing for fprintf...\n");
+   fputs("This is testing for fputs...\n", fp);
+   fclose(fp);
    return 0;
 }
 
