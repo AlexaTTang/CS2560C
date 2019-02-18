@@ -4,36 +4,33 @@
  *  Created on: Feb 17, 2019
  *      Author: alexa
  */
-//Arrays -- allocate one contiguous block of memory holding declaring multiple of one data type
-//name of array used is an address of memory.
-
-//Declaration with Assignment -- declaring 10 doubles
-double balance[10] = {1000.0, 2.0, 3.4, 7.0, 50.0};
-
-//when using in calculation or assignment below recall always start at 0
-//balance[0] = 1000.0 , balance[3] = 7.0, balance[7] = 0, balance[10] = error out of bounds
-
-//Also acceptable because size will be known. Size will be 5 hence --> double balance[5]
-//double balance[] = {1000.0, 2.0, 3.4, 7.0, 50.0};
-
-//code example
 #include <stdio.h>
 
-int main () {
+int main ()
+{
 
-   int n[ 10 ]; /* n is an array of 10 integers */
-   int i,j;
+   int  var = 20;
+   int x = 10;
+   int  *ip;        /* pointer variable declaration */
 
-   /* initialize elements of array n to 0 */
-   for ( i = 0; i < 10; i++ ){
-      n[ i ] = i + 100; /* set element at location i to i + 100 */
-   }
+   ip = NULL; // Point to address 0 for safety
 
-   /* output each array element's value */
-   for (j = 0; j < 10; j++ ){
-      printf("Element[%d] = %d\n", j, n[j] );
-   }
+   ip = &var;  /* Change where you point to. Now pointing to address of var */
+
+   x = x + *ip; // x = 10 + 20. grabbing data where pointer is pointing is called dereferencing the pointer
+
+   ip = &x; //CHANGE WHERE ip points --> point to address of x
+
+   //showing pointer calculation
+   ip = ip + 3;  // address of ip + (3 * sizeof(int)) = address of ip + 12
+
+   printf("Address of var variable: %x\n", &var  );
+
+   /* address stored in pointer variable */
+   printf("Address stored in ip variable: %x\n", ip );
+
+   /* access the value using the pointer */
+   printf("Value of *ip variable: %d\n", *ip );
 
    return 0;
 }
-
